@@ -9,7 +9,11 @@ on:
 
 jobs:
   build:
-
+jobs: 
+    test:
+jobs: 
+    deploy:
+    
     runs-on: self-hosted
 
     strategy:
