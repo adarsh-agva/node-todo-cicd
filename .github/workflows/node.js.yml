@@ -8,8 +8,9 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build: 
-   runs-on: self-hosted
+  build:
+
+    runs-on: self-hosted
 
     strategy:
       matrix:
