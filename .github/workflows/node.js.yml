@@ -26,16 +26,26 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
-jobs:
-  build:
+lint:
+        name: Lint and Test
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: leafo/gh-actions-lua@v8.0.0
+            - uses: leafo/gh-actions-luarocks@v4.0.0
 
-    runs-on: ubuntu-latest
+            - name: Install Luacheck
+              run: luarocks install luacheck
 
-    steps:
-      - uses: actions/checkout@v4
-      - name: Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20.x'
-      - run: npm ci
-      - run: npm run build --if-present
+            - name: Run Lint Check
+            - run: ./run-linter.sh
+
+            - name: Install Busted
+              run: luarocks install busted
+
+            - name: Build Project
+              run: ./build-project.sh
+
+            - name: Run Test Suite
+            - run: ./run-test-suite.sh
+
