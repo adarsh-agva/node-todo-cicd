@@ -15,6 +15,4 @@ Run these commands:
 
 or Run by docker compose
 
-test and run
-
-we test
+test and run..
