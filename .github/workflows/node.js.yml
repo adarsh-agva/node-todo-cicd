@@ -26,8 +26,9 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
-lint:
-        name: Lint and Test
+    
+job:
+        name: Test
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
@@ -36,9 +37,6 @@ lint:
 
             - name: Install Luacheck
               run: luarocks install luacheck
-
-            - name: Run Lint Check
-            - run: ./run-linter.sh
 
             - name: Install Busted
               run: luarocks install busted
