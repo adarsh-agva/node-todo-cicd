@@ -32,12 +32,13 @@ jobs:
 
 on:
   push:
-    branches:
-      - main
+    branches: ["master"]
+      
 
 jobs:
   deployment:
     runs-on: ubuntu-latest
     environment: production
+    concurrency: production
     steps:
       - name: deploy
