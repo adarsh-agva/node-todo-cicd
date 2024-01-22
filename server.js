@@ -1,12 +1,11 @@
-import express from "express";
+var http = require('http'); // 1 - Import Node.js core module
 
-const app = express();
-const port = 3000;
+var server = http.createServer(function (req, res) {   // 2 - creating server
 
-app.get('/', (req, res) => {
-  res.send('Welcome to my server!');
+    //handle incomming requests here..
+
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+server.listen(5000); //3 - listen for any incoming requests
+
+console.log('Node.js web server at port 5000 is running..')
