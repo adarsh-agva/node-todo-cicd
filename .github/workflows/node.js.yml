@@ -27,9 +27,8 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
-    ame: Deployment
-
-concurrency: production
+    
+    name: Deployment
 
 on:
   push:
